@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   post 'oficinas/guardar', to: 'oficinas#guardar'
 
   # rutas inquilinos
-  get 'inquilinos'            , to: 'inquilinos#listar'
-  get 'inquilinos/crear'      , to: 'inquilinos#crear'
-  get 'inquilinos/:id'        , to: 'inquilinos#mostrar'
-  get 'inquilinos/:id/editar' , to: 'inquilinos#editar'
+  get 'inquilinos'            , to: 'inquilinos#listar', as: 'inquilinos'
+  get 'inquilinos/crear'      , to: 'inquilinos#crear', as: 'nuevo_inquilino'
+  get 'inquilinos/:id'        , to: 'inquilinos#mostrar', as: 'inquilino'
+  get 'inquilinos/:id/editar' , to: 'inquilinos#editar', as: 'editar_inquilino'
 
   post    'inquilinos/crear',   to: 'inquilinos#guardar'
   put     'inquilinos/:id',     to: 'inquilinos#actualizar'
