@@ -4,8 +4,9 @@ class InquilinosController < ApplicationController
 
   # GET
   def listar
-    @lista_inquilinos = Inquilino.all.order(id: :asc)
-  end
+    @lista_inquilinos = Inquilino.includes(:oficina).order(id: :asc)
+    cookies[:mi_galleta] = "de chocolate"
+    end
 
   # GET - Devolver el formulario para crear un inquilino
   def crear

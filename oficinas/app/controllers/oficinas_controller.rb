@@ -1,7 +1,8 @@
 class OficinasController < ApplicationController
   # GET
   def listar
-    @lista_oficinas = Oficina.all.order(id: :asc)
+    #@lista_oficinas = Oficina.all.order(id: :asc)
+    @lista_oficinas = Oficina.includes(:inquilinos).order(id: :asc)
 
   end
 
