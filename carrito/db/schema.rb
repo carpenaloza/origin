@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_022110) do
+ActiveRecord::Schema.define(version: 2021_08_30_154808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,30 @@ ActiveRecord::Schema.define(version: 2021_08_26_022110) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "categoria", force: :cascade do |t|
+  create_table "administradores", force: :cascade do |t|
+    t.string "nombre_usuario"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carros", force: :cascade do |t|
+    t.float "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carros_contenidos", force: :cascade do |t|
+    t.bigint "carro_id", null: false
+    t.bigint "producto_id", null: false
+    t.integer "cantidad"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carro_id"], name: "index_carros_contenidos_on_carro_id"
+    t.index ["producto_id"], name: "index_carros_contenidos_on_producto_id"
+  end
+
+  create_table "categorias", id: :bigint, default: -> { "nextval('categoria_id_seq'::regclass)" }, force: :cascade do |t|
     t.string "categoria"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,5 +85,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_022110) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "productos", "categoria"
+  add_foreign_key "carros_contenidos", "carros"
+  add_foreign_key "carros_contenidos", "productos"
+  add_foreign_key "productos", "categorias"
 end
