@@ -5,13 +5,13 @@
 
         <% @todos_los_productos.each do |producto| %>
 
-                <div class="col">
+                <div class="col" style="aling-items: center">
                     <div class="card" style="width: 18rem;">
                         <%= image_tag producto.imagenes.first, class: 'card-img-top'  %>
                         <div class="card-body">
                             <h5 class="card-title"> <%= producto.nombre %> </h5>
                             <p class="card-text1"><%= producto.descripcion %></p>
-                            <h3><%= producto.precio.to_s[0..-3] %></h3>
+                            <h3><%= producto.precio.to_s[0..-3] %> CLP </h3>
                             
                             <%= link_to 'Agregar al carro', agregar_producto_path(producto), class: 'btn btn-primary', method: :post %>
                         </div>
