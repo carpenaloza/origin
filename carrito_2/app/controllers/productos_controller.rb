@@ -1,5 +1,6 @@
 class ProductosController < ApplicationController
-
+    
+    before_action :validar_sesion
     before_action :asignar_producto, only: [:mostrar, :editar, :actualizar, :eliminar, :eliminar_foto]
 
     # GET
