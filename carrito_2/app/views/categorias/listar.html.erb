@@ -1,0 +1,35 @@
+<h3>Categorías</h3>
+
+<div>
+<%= link_to nueva_categoria_path, class: "btn btn-primary" do %>
+    <i class="bi bi-plus-circle"> Agregar categoría</i>
+<% end %>
+</div>
+
+<div id="contenido_productos">
+    <table class="table align-middle">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categorias.each do |categoria| %>
+                <tr>
+                    <td scope="row"><%= categoria.categoria %></td>
+                    <td>
+                        <%= link_to editar_categoria_path(categoria) do %>
+                        <i class="bi bi-pencil-fill"></i> Editar
+                        <% end %> <br>
+                        <%= link_to categoria_path(categoria), method: :delete, data: { confirm: '¿Quieres eliminar la categoria?' } do %>                   
+                        <i class="bi bi-trash-fill"></i> Eliminar                    
+                        <% end %>
+                    </td>          
+                </tr>
+            </tbody>
+    <% end %>
+    </table>
+
+    
+</div>
