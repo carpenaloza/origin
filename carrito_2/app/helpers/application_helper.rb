@@ -1,4 +1,5 @@
 module ApplicationHelper
+
     def validar_carro
         if session[:carro_id]
             carro_id = session[:carro_id]
@@ -28,4 +29,5 @@ module ApplicationHelper
         session[:admin_id] = nil
         redirect_to sesiones_path
     end
+    
 end

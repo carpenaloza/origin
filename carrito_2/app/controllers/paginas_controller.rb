@@ -1,6 +1,5 @@
 class PaginasController < ApplicationController
-    
-    # before_action :validar_sesion
+
     before_action :validar_carro
     
 

@@ -2,6 +2,8 @@ class CategoriasController < ApplicationController
 
     before_action :validar_sesion
     before_action :asignar_categoria, only: [:mostrar, :editar, :actualizar, :eliminar]
+    layout 'application'
+    
     # GET
     def listar
         @categorias = Categoria.select(:id, :categoria).order(categoria: :asc)

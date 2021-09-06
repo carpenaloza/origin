@@ -12,6 +12,7 @@ ActiveSupport::Inflector.inflections do |inflect|
     inflect.irregular 'region', 'regiones'
     inflect.irregular 'venta', 'ventas'
     inflect.irregular 'administrador', 'administradores'
+    inflect.irregular 'user', 'users'
 end
 
 # These inflection rules are supported but not enabled by default:

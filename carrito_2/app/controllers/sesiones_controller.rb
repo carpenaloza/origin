@@ -26,4 +26,6 @@ class SesionesController < ApplicationController
         session[:admin_id] = nil
         redirect_to login_path
     end
+  
+    
 end

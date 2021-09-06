@@ -1,6 +1,8 @@
 class DestinosController < ApplicationController
     before_action :validar_sesion
     before_action :asignar_destino, only: [:mostrar, :editar, :actualizar, :eliminar]
+    layout 'application'
+    
     # GET
     def listar
         @destinos = Destino.includes(:region).select(:id, :nombre, :region_id)
